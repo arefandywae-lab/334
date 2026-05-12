@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Django Exam Template{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>My Website</h1>
+        </header>
+
+        <nav>
+            <a href="{% url 'post_list' %}">Home</a>
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_create' %}">Create New Post</a>
+                <span style="margin-left: auto; color: #666;">Hello, {{ user.username }}</span>
+                <a href="{% url 'logout' %}">Logout</a>
+            {% else %}
+                <div style="margin-left: auto; display: flex; gap: 10px;">
+                    <a href="{% url 'login' %}">Login</a>
+                    <a href="{% url 'register' %}">Register</a>
+                </div>
+            {% endif %}
+        </nav>
+
+        <main>
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        <aside>
+            <h3>Sidebar</h3>
+            <p>Welcome to my exam project! Use CSS Grid to organize everything.</p>
+            <hr style="margin: 10px 0;">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="/admin/">Admin Panel</a></li>
+            </ul>
+        </aside>
+
+        <footer>
+            <p>&copy; 2026 Django Exam Prep - Build with CSS Grid</p>
+        </footer>
+    </div>
+</body>
+</html>

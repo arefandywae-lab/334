@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %}
+
+{% block title %}เข้าสู่ระบบ{% endblock %}
+
+{% block content %}
+    <div style="max-width: 400px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; border: 1px solid #ddd;">
+        <h2>Login</h2>
+        <hr>
+        <form method="post">
+            {% csrf_token %} <div style="display: grid; gap: 15px;">
+                {{ form.as_p }}
+                <button type="submit" style="background: #333; color: white; border: none; padding: 10px; cursor: pointer; border-radius: 5px;">
+                    เข้าสู่ระบบ
+                </button>
+            </div>
+        </form>
+    </div>
+{% endblock %}

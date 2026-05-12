@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 0 auto;">
+    <h2>Login</h2>
+    <hr style="margin: 20px 0;">
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+        </div>
+    </form>
+    
+    <p style="margin-top: 15px; text-align: center;">
+        Forgot your password? Ask the admin.
+    </p>
+</div>
+{% endblock %}

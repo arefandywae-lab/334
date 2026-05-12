@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 0 auto;">
+    <h2>Create New Account</h2>
+    <hr style="margin: 20px 0;">
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        
+        <div style="margin-top: 20px;">
+            <button type="submit" class="btn btn-primary" style="width: 100%;">Register</button>
+        </div>
+    </form>
+    
+    <p style="margin-top: 15px; text-align: center;">
+        Already have an account? <a href="{% url 'login' %}">Login here</a>
+    </p>
+</div>
+{% endblock %}

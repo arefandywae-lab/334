@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Full Page</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f0f2f5;
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .register-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 450px;
+            display: grid;
+            gap: 20px;
+        }
+        h2 { text-align: center; color: #1c1e21; }
+        form { display: grid; gap: 10px; }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #42b72a;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover { background-color: #36a420; }
+        .links { text-align: center; font-size: 14px; color: #606770; }
+        .links a { color: #1877f2; text-decoration: none; }
+        small { color: #666; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="register-card">
+        <h2>Register</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Sign Up</button>
+        </form>
+        <div class="links">
+            Already have an account? <a href="{% url 'login_full' %}">Log In</a>
+        </div>
+    </div>
+</body>
+</html>

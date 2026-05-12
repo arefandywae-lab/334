@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Post List{% endblock %}
+
+{% block content %}
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>All Posts</h2>
+        <a href="{% url 'post_create' %}" class="btn btn-primary">Add New Post</a>
+    </div>
+
+    <div class="post-grid">
+        {% for post in posts %}
+            <div class="post-card">
+                <div>
+                    <span class="category">{{ post.category }}</span>
+                    <h3>{{ post.title }}</h3>
+                    <p>{{ post.content|truncatechars:100 }}</p>
+                </div>
+                <div style="margin-top: 15px;">
+                    <a href="{% url 'post_detail' post.pk %}" class="btn btn-secondary">Read More</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>No posts yet. <a href="{% url 'post_create' %}">Create one!</a></p>
+        {% endfor %}
+    </div>
+{% endblock %}

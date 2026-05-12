@@ -1,0 +1,13 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+    <h2>เขียนบทความใหม่</h2>
+    <hr>
+    <form method="post">
+        {% csrf_token %} <div style="display: grid; gap: 10px;">
+            {{ form.as_p }} <button type="submit" style="padding: 10px; background: #333; color: white; border: none; cursor: pointer;">
+                บันทึกบทความ
+            </button>
+        </div>
+    </form>
+{% endblock %}

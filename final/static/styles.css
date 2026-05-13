@@ -1,0 +1,176 @@
+/* ===== การตั้งค่าทั่วไปของหน้าเว็บ ===== */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center; /* จัดทุก element ให้อยู่ตรงกลางหน้า */
+}
+
+/* ===== ตารางแสดงข้อมูลสินค้า ===== */
+table {
+    border-collapse: collapse; /* รวม border ของ cell ให้เป็นเส้นเดียว */
+    width: 80%;               /* ตารางกว้าง 80% ของหน้า */
+    margin: 0 auto;           /* จัดตารางให้อยู่กลางหน้า */
+}
+
+/* margin-bottom เฉพาะตารางข้อมูลสินค้า (ไม่กระทบ form-table) */
+table:not(.form-table) {
+    margin-bottom: 80px;
+}
+
+/* ===== ขอบและ padding ของแต่ละช่องในตาราง ===== */
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+/* ===== คอลัมน์ตัวเลข (Price, Quantity, Total) ชิดขวา ===== */
+/* Price = คอลัมน์ที่ 3, Quantity = คอลัมน์ที่ 4, Total = คอลัมน์ที่ 6 */
+td:nth-child(3),
+td:nth-child(4),
+td:nth-child(6) {
+    text-align: right;
+}
+
+/* ===== หัวตาราง ===== */
+th {
+    background-color: #4a90d9; /* พื้นหลังสีฟ้า */
+    color: white;
+    text-align: center;        /* ชื่อคอลัมน์อยู่กลาง */
+}
+
+/* ===== แถวคู่มีพื้นหลังสีเทาอ่อน เพื่อให้อ่านง่ายขึ้น ===== */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* ===== กรอบของฟอร์ม (Create / Update) ===== */
+form {
+    display: inline-block;
+    border: 1px solid #d0d7e2;
+    border-radius: 12px;
+    padding: 32px 48px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08); /* เงาใต้กรอบ */
+    background-color: #fff;
+    margin-top: 16px;
+    min-width: 420px;
+}
+
+/* ===== ตารางภายในฟอร์ม (.form-table) ===== */
+/* ใช้แยกสไตล์ฟอร์มออกจากตารางข้อมูลสินค้า */
+.form-table {
+    width: 100%;
+    border: none;
+}
+
+/* ยกเลิกสีพื้นหลังแถบลายม้าลายในแถวของฟอร์ม */
+.form-table tr {
+    background-color: transparent !important;
+}
+
+/* ยกเลิก border ของ cell ในฟอร์ม */
+.form-table th,
+.form-table td {
+    border: none;
+    padding: 10px 8px;
+    text-align: left;
+}
+
+/* ===== Label ของแต่ละ field ในฟอร์ม ===== */
+.form-table th {
+    background-color: transparent;
+    color: #555;
+    font-weight: 600;
+    font-size: 13px;
+    text-transform: uppercase;  /* แสดงตัวพิมพ์ใหญ่ */
+    letter-spacing: 0.5px;
+    white-space: nowrap;        /* ป้องกัน label ขึ้นบรรทัดใหม่ */
+    width: 110px;
+}
+
+/* ===== ช่องกรอกข้อมูลและ dropdown ในฟอร์ม ===== */
+.form-table input,
+.form-table select {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #d0d7e2;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #333;
+    background-color: #fafafa;
+    transition: border-color 0.2s, box-shadow 0.2s; /* animation เมื่อ focus */
+}
+
+/* เมื่อคลิกที่ช่องกรอกข้อมูล แสดง highlight สีฟ้า */
+.form-table input:focus,
+.form-table select:focus {
+    outline: none;
+    border-color: #4a90d9;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(74,144,217,0.15);
+}
+
+/* ===== ลิงก์ทั่วไป ===== */
+a {
+    color: #4a90d9;
+    text-decoration: none; /* ไม่มีเส้นใต้ */
+}
+
+/* ===== ปุ่ม icon ใน Action column ===== */
+a.action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4a90d9;
+    color: white;
+    border-radius: 6px;
+    padding: 4px 6px;
+    margin: 0 2px;
+    transition: background-color 0.2s;
+}
+
+a.action-icon:hover {
+    background-color: #357abd;
+}
+
+a.action-icon .material-symbols-outlined {
+    font-size: 18px;
+    color: white;
+}
+
+/* ===== ลิงก์ที่แสดงเป็นปุ่ม เช่น Add A New Product ===== */
+a.btn {
+    display: inline-block;
+    background-color: #4a90d9;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s;
+}
+
+a.btn:hover {
+    background-color: #357abd;
+}
+
+/* ===== ปุ่ม (Create, Update, Confirm Delete) ===== */
+button {
+    background-color: #4a90d9;
+    color: white;
+    border: none;
+    padding: 10px 32px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s; /* animation เมื่อ hover */
+}
+
+/* สีปุ่มเข้มขึ้นเมื่อเอาเมาส์ไปชี้ */
+button:hover {
+    background-color: #357abd;
+}

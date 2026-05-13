@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Product Details{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'material-symbols.css' %}">
+</head>
+<body>
+    <img src="{% static 'logo.png' %}" alt="Logo" height="80"><br>
+    <p>6610625037 Arefandy Waeouseng</p>
+
+    <h2>{% block heading %}Product Details{% endblock %}</h2>
+
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block title %}Product Details{% endblock %}
+{% block heading %}Product Details{% endblock %}
+
+{% block content %}
+{% if max_product %}
+<p>Maximum total: <strong>{{ max_product.name }}</strong> — ยอดรวมมูลค่าสูงสุด {{ max_product.total|floatformat:2 }}</p>
+{% endif %}
+
+<p><a href="/product/create" class="btn">Add A New Product</a></p>
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Total</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in products %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.quantity }}</td>
+            <td>{{ p.category }}</td>
+            <td>{{ p.total|floatformat:2 }}</td>
+            <td>
+                <a href="/product/update/{{ p.id }}" class="action-icon">
+                    <span class="material-symbols-outlined">edit</span>
+                </a>
+                <a href="/product/delete/{{ p.id }}" class="action-icon">
+                    <span class="material-symbols-outlined">delete</span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
